@@ -8,6 +8,7 @@ use GuzzleHttp\Client;
 class Girl {
 
     private static $baseUrl = 'http://www.mmjpg.com';
+    private static $downloadDir = 'girls/';
 
     public static function findGirl() {
         $dom = new Dom;
@@ -40,9 +41,13 @@ class Girl {
         $imgUrl = str_replace('/small', '', $imgUrl);
         $imgUrl = str_replace('.jpg', '/1.jpg', $imgUrl);
         //echo $imgUrl . "\n\r";exit();
-        $fileName = 'girls/' . uniqid() . '.' . pathinfo($imgUrl)['extension'];
+        if (!is_dir(public_path(Girl::$downloadDir))) {
+            mkdir(public_path(Girl::$downloadDir));
+            chmod(public_path(Girl::$downloadDir), 0777);
+        }
+        $fileName = uniqid() . '.' . pathinfo($imgUrl)['extension'];
         //$path = public_path($fileName);
-        $path = __DIR__ . '/../../public/' . $fileName;
+        $path = public_path(Girl::$downloadDir) . '/' . $fileName;
         $resource = fopen($path, 'w');
         $stream = \GuzzleHttp\Psr7\stream_for($resource);
         $client->request('GET', $imgUrl, [
