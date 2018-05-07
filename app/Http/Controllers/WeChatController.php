@@ -7,6 +7,7 @@ use EasyWeChat;
 use EasyWeChat\Kernel\Messages\Image;
 use App\Classes\TuLing;
 use App\Classes\Girl;
+use GuzzleHttp\Client;
 
 class WeChatController extends Controller {
 
@@ -68,6 +69,18 @@ class WeChatController extends Controller {
         });
 
         return $app->server->serve();
+    }
+
+    public function test(){
+        $client = new Client();
+        $client->request('POST','http://127.0.0.1:8866',['json'=>[
+            'action' => 'send',
+            'params' => [
+                'type'=>'text',
+                'username'=>'@ea6f20932b9f5963f9afa09391e53aef2e266911d7f8c0df7e03f869ef082fc8',
+                'content'=>'测试api'
+            ]
+            ]]);
     }
 
 }

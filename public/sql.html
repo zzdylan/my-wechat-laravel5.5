@@ -1,0 +1,22 @@
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$.ajax({
+	url:'http://dev3.shareg.cn/api/admin/login',
+	type:'post',
+	data:{},
+// 	headers: {
+//         Authorization:'bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vdW5kZW1vLnNoYXJlZy5jbi9hcGkvbG9naW4iLCJpYXQiOjE1MTU2NjQ5MDQsImV4cCI6MTUxNTc1MTMwNCwibmJmIjoxNTE1NjY0OTA0LCJqdGkiOiJWNHBhSm5GTkE1Q0tRNEFFIiwic3ViIjo2MCwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.jeSc67_j60jhovV70IjsrxfoR7Pth8FdtzxIHDvbf28'
+//     },
+	headers:{
+		Authorization:'bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vdW5kZW1vLnNoYXJlZy5jbi9hcGkvbG9naW4iLCJpYXQiOjE1MTU2NjQ5MDQsImV4cCI6MTUxNTc1MTMwNCwibmJmIjoxNTE1NjY0OTA0LCJqdGkiOiJWNHBhSm5GTkE1Q0tRNEFFIiwic3ViIjo2MCwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.jeSc67_j60jhovV70IjsrxfoR7Pth8FdtzxIHDvbf28'
+	},
+	dataType:'json',
+	success:function(res){
+		console.log(res);
+	},
+	error:function(err){
+		console.log(err);
+	}
+
+});
+</script>

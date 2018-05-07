@@ -15,5 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::any('/wechat', 'WeChatController@serve');
+Route::any('/test', 'WeChatController@test');
 Route::any('/add_button', 'WeChatController@addButton');
 Route::view('/red_packet', 'redPacket');
